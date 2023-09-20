@@ -1,5 +1,6 @@
 [project]
 name = "MarkupSafe"
+version = "3.0.0.dev"
 description = "Safely add untrusted strings to HTML/XML markup."
 readme = "README.rst"
 license = {text = "BSD-3-Clause"}
@@ -14,8 +15,7 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     "Topic :: Text Processing :: Markup :: HTML",
 ]
-requires-python = ">=3.7"
-dynamic = ["version"]
+requires-python = ">=3.8"
 
 [project.urls]
 Donate = "https://palletsprojects.com/donate"
@@ -46,10 +46,13 @@ source = ["markupsafe", "tests"]
 source = ["src", "*/site-packages"]
 
 [tool.mypy]
-python_version = "3.7"
-files = ["src/markupsafe"]
+python_version = "3.8"
+files = ["src/markupsafe", "tests"]
 show_error_codes = true
 pretty = true
 strict = true
-local_partial_types = true
-warn_unreachable = true
+
+[tool.pyright]
+pythonVersion = "3.8"
+include = ["src/markupsafe", "tests"]
+typeCheckingMode = "basic"
